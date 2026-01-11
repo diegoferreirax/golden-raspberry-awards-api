@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36518.9 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GoldenRaspberryAwardsApi", "GoldenRaspberryAwardsApi\GoldenRaspberryAwardsApi.csproj", "{B9B381BC-ECBF-4DD5-A74D-21912DE70CBE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B9B381BC-ECBF-4DD5-A74D-21912DE70CBE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B9B381BC-ECBF-4DD5-A74D-21912DE70CBE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B9B381BC-ECBF-4DD5-A74D-21912DE70CBE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B9B381BC-ECBF-4DD5-A74D-21912DE70CBE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9E83BC5C-C47D-4572-B7F3-CAF929871CA7}
+	EndGlobalSection
+EndGlobal
