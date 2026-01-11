@@ -20,17 +20,17 @@ Após instalar todos os pré-requisitos, clone o repositório:
 git clone https://github.com/diegoferreirax/golden-raspberry-awards-api.git
 ```
 
-Entre na pasta raiz do projeto:
+Entre na pasta src do projeto:
 
 ```bash
-cd golden-raspberry-awards-api
+cd golden-raspberry-awards-api/src
 ```
 
 ## 🚀 Execução
 
 O modo de execução para este projeto é com docker compose para deixar tudo mais centralizado.
 
-Ainda na raiz do projeto, execute o comando do docker compose:
+Ainda na pasta src do projeto, execute o comando do docker compose:
 ```bash
 docker compose -f docker-compose.yml up -d --force-recreate
 ```
