@@ -43,18 +43,5 @@ public class CsvReaderService
 
         return movies;
     }
-
-    public static void DisplayMovies(List<Movie> movies)
-    {
-        Console.WriteLine("=== Conteúdo do arquivo movielist.csv ===\n");
-        Console.WriteLine($"Total de filmes carregados: {movies.Count}\n");
-        
-        foreach (var movie in movies)
-        {
-            Console.WriteLine($"Year: {movie.Year} | Title: {movie.Title} | Studios: {movie.Studios} | Producers: {movie.Producers} | Winner: {movie.Winner}");
-        }
-        
-        Console.WriteLine("\n=== Fim do arquivo ===\n");
-    }
 }
 
