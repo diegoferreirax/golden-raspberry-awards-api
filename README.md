@@ -53,8 +53,20 @@ Abra o navegador e acesse:
 
 - `http://localhost:5139/swagger`
 
-### 2. Executando testes de integração
+### 2. Entrar na pasta do projeto de testes
 
+```bash
+cd ../tests
+```
+
+### 3. Executando testes de integração
+
+Execute o build do projeto:
+```bash
+dotnet build
+```
+
+Rodar os testes:
 ```bash
 dotnet test
 ```

@@ -27,3 +27,5 @@ var movies = CsvReaderService.ReadAndParseCsv();
 movieService.SetMovies(movies);
 
 app.Run();
+
+public partial class Program { }
