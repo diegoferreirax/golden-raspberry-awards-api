@@ -1,4 +1,4 @@
-using GoldenRaspberryAwardsApi.Controllers;
+using GoldenRaspberryAwardsApi.Dtos;
 using GoldenRaspberryAwardsApi.Models;
 
 namespace GoldenRaspberryAwardsApi.Services;
@@ -10,7 +10,13 @@ public class MovieService
     public MovieAwardsRangeResponseDto GetMoviesAwardsRange()
     {
         var producerWins = _getProducerWins(_movies);
-        var moviesRangeDto = _getMoviesRangeDto(producerWins);
+        if (!producerWins.Any())
+            throw new InvalidOperationException("Nenhum filme vencedor encontrado.");
+
+        var moviesRangeDto = _calculateAllIntervals(producerWins);
+        if (!moviesRangeDto.Any())
+            throw new InvalidOperationException("Nenhum intervalo de prêmios encontrado.");
+
         var moviesRangeDtoOrdered = moviesRangeDto.OrderBy(m => m.Interval).ToList();
 
         var minInterval = moviesRangeDtoOrdered.First().Interval;
@@ -48,24 +54,27 @@ public class MovieService
         return producerWins;
     }
 
-    private static List<MovieRangeResponseDto> _getMoviesRangeDto(Dictionary<string, List<int>> producerWins)
+    private static List<MovieRangeResponseDto> _calculateAllIntervals(
+    Dictionary<string, List<int>> producerWins)
     {
-        var moviesRangeDto = new List<MovieRangeResponseDto>();
+        var intervals = new List<MovieRangeResponseDto>();
+
         foreach (var kvp in producerWins)
         {
             var producer = kvp.Key;
-            var years = kvp.Value;
-            var wins = years.Count;
-            if (wins > 1)
+            var years = kvp.Value.OrderBy(y => y).ToList();
+
+            for (int i = 0; i < years.Count - 1; i++)
             {
-                moviesRangeDto.Add(new MovieRangeResponseDto(
+                intervals.Add(new MovieRangeResponseDto(
                     Producer: producer,
-                    Interval: years[1] - years[0],
-                    PreviousWin: years[0],
-                    FollowingWin: years[1]));
+                    Interval: years[i + 1] - years[i],
+                    PreviousWin: years[i],
+                    FollowingWin: years[i + 1]));
             }
         }
-        return moviesRangeDto;
+
+        return intervals;
     }
 }
 
