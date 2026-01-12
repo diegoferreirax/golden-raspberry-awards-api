@@ -26,6 +26,4 @@ var movieService = app.Services.GetRequiredService<MovieService>();
 var movies = CsvReaderService.ReadAndParseCsv();
 movieService.SetMovies(movies);
 
-CsvReaderService.DisplayMovies(movieService.GetMovies());
-
 app.Run();
