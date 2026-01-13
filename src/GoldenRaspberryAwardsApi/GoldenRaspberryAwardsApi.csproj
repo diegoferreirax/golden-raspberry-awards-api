@@ -13,6 +13,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\GoldenRaspberryAwardsApi.Application\GoldenRaspberryAwardsApi.Application.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Update="Files\movielist.csv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

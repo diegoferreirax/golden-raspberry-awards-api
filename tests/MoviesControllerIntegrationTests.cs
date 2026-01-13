@@ -1,7 +1,7 @@
 using System.Net;
 using System.Net.Http.Json;
-using GoldenRaspberryAwardsApi.Dtos;
-using GoldenRaspberryAwardsApi.Services;
+using GoldenRaspberryAwardsApi.Application.Dtos;
+using GoldenRaspberryAwardsApi.Application.Services;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc.Testing;
 using Microsoft.Extensions.DependencyInjection;

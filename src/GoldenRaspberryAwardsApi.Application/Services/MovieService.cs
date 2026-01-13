@@ -1,7 +1,7 @@
-using GoldenRaspberryAwardsApi.Dtos;
-using GoldenRaspberryAwardsApi.Models;
+using GoldenRaspberryAwardsApi.Application.Dtos;
+using GoldenRaspberryAwardsApi.Domain;
 
-namespace GoldenRaspberryAwardsApi.Services;
+namespace GoldenRaspberryAwardsApi.Application.Services;
 
 public class MovieService
 {

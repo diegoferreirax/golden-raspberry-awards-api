@@ -1,6 +1,6 @@
-using GoldenRaspberryAwardsApi.Models;
+using GoldenRaspberryAwardsApi.Domain;
 
-namespace GoldenRaspberryAwardsApi.Services;
+namespace GoldenRaspberryAwardsApi.Application.Services;
 
 public class CsvReaderService
 {

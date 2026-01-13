@@ -1,4 +1,4 @@
-﻿namespace GoldenRaspberryAwardsApi.Dtos;
+﻿namespace GoldenRaspberryAwardsApi.Application.Dtos;
 
 /// <summary>
 /// DTO de resposta contendo os intervalos de prêmios (menor e maior) entre produtores

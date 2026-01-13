@@ -1,5 +1,5 @@
-using GoldenRaspberryAwardsApi.Dtos;
-using GoldenRaspberryAwardsApi.Services;
+using GoldenRaspberryAwardsApi.Application.Dtos;
+using GoldenRaspberryAwardsApi.Application.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace GoldenRaspberryAwardsApi.Controllers;

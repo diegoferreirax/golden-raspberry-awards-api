@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GoldenRaspberryAwardsApi", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "..\tests\Tests.csproj", "{6B18D1E5-BF04-420E-8490-77773E263F2E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GoldenRaspberryAwardsApi.Application", "GoldenRaspberryAwardsApi.Application\GoldenRaspberryAwardsApi.Application.csproj", "{22B89E9C-5C2C-48C9-AB08-70DD0A979773}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GoldenRaspberryAwardsApi.Domain", "GoldenRaspberryAwardsApi.Domain\GoldenRaspberryAwardsApi.Domain.csproj", "{683268C9-A0AA-4A26-9749-08542A4AF056}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{6B18D1E5-BF04-420E-8490-77773E263F2E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6B18D1E5-BF04-420E-8490-77773E263F2E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6B18D1E5-BF04-420E-8490-77773E263F2E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{22B89E9C-5C2C-48C9-AB08-70DD0A979773}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{22B89E9C-5C2C-48C9-AB08-70DD0A979773}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{22B89E9C-5C2C-48C9-AB08-70DD0A979773}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{22B89E9C-5C2C-48C9-AB08-70DD0A979773}.Release|Any CPU.Build.0 = Release|Any CPU
+		{683268C9-A0AA-4A26-9749-08542A4AF056}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{683268C9-A0AA-4A26-9749-08542A4AF056}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{683268C9-A0AA-4A26-9749-08542A4AF056}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{683268C9-A0AA-4A26-9749-08542A4AF056}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,4 +1,4 @@
-using GoldenRaspberryAwardsApi.Services;
+using GoldenRaspberryAwardsApi.Application.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 

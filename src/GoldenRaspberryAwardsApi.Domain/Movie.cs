@@ -1,4 +1,4 @@
-namespace GoldenRaspberryAwardsApi.Models;
+namespace GoldenRaspberryAwardsApi.Domain;
 
 public class Movie
 {
