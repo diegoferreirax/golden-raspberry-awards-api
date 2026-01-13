@@ -9,13 +9,16 @@ public class MovieService
 
     public MovieAwardsRangeResponseDto GetMoviesAwardsRange()
     {
+        if (!_movies.Any())
+            throw new InvalidOperationException("Nenhum filme carregado.");
+
         var producerWins = _getProducerWins(_movies);
         if (!producerWins.Any())
             throw new InvalidOperationException("Nenhum filme vencedor encontrado.");
 
         var moviesRangeDto = _calculateAllIntervals(producerWins);
         if (!moviesRangeDto.Any())
-            throw new InvalidOperationException("Nenhum intervalo de pr�mios encontrado.");
+            throw new InvalidOperationException("Nenhum intervalo de prêmios encontrado.");
 
         var moviesRangeDtoOrdered = moviesRangeDto.OrderBy(m => m.Interval).ToList();
 
@@ -31,8 +34,36 @@ public class MovieService
 
     public void SetMovies(List<Movie> movies)
     {
+        if (movies == null)
+            throw new ArgumentNullException(nameof(movies), "A lista de filmes não pode ser nula.");
+
+        var validMovies = movies.Where(m => IsValidMovie(m)).ToList();
+        
+        if (validMovies.Count < movies.Count)
+        {
+            var invalidCount = movies.Count - validMovies.Count;
+            Console.WriteLine($"Aviso: {invalidCount} filme(s) inválido(s) foram ignorados.");
+        }
+
         _movies.Clear();
-        _movies.AddRange(movies);
+        _movies.AddRange(validMovies);
+    }
+
+    private static bool IsValidMovie(Movie movie)
+    {
+        if (movie == null)
+            return false;
+
+        if (movie.Year < 1900 || movie.Year > 2100)
+            return false;
+
+        if (string.IsNullOrWhiteSpace(movie.Title))
+            return false;
+
+        if (string.IsNullOrWhiteSpace(movie.Producers))
+            return false;
+
+        return true;
     }
 
     private static Dictionary<string, List<int>> _getProducerWins(List<Movie> movies)
@@ -40,9 +71,15 @@ public class MovieService
         var producerWins = new Dictionary<string, List<int>>();
         foreach (var w in movies)
         {
+            if (string.IsNullOrWhiteSpace(w.Producers))
+                continue;
+
             var producers = w.Producers.Split([",", " and "], StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries);
             foreach (var producer in producers)
             {
+                if (string.IsNullOrWhiteSpace(producer))
+                    continue;
+
                 if (!producerWins.TryGetValue(producer, out var value))
                 {
                     value = [];

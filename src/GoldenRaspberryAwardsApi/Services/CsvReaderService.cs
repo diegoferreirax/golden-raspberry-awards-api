@@ -31,15 +31,39 @@ public class CsvReaderService
                 var parts = line.Split(';');
                 if (parts.Length >= 5)
                 {
+                    if (!int.TryParse(parts[0], out var year) || !IsValidYear(year))
+                    {
+                        Console.WriteLine($"Linha {i + 1}: Ano inválido '{parts[0]}'. Filme ignorado.");
+                        continue;
+                    }
+
+                    var title = parts[1]?.Trim() ?? string.Empty;
+                    if (string.IsNullOrWhiteSpace(title))
+                    {
+                        Console.WriteLine($"Linha {i + 1}: Título vazio. Filme ignorado.");
+                        continue;
+                    }
+
+                    var producers = parts[3]?.Trim() ?? string.Empty;
+                    if (string.IsNullOrWhiteSpace(producers))
+                    {
+                        Console.WriteLine($"Linha {i + 1}: Produtores vazios. Filme ignorado.");
+                        continue;
+                    }
+
                     var movie = new Movie
                     {
-                        Year = int.TryParse(parts[0], out var year) ? year : 0,
-                        Title = parts[1] ?? string.Empty,
-                        Studios = parts[2] ?? string.Empty,
-                        Producers = parts[3] ?? string.Empty,
+                        Year = year,
+                        Title = title,
+                        Studios = parts[2]?.Trim() ?? string.Empty,
+                        Producers = producers,
                         Winner = parts[4]?.Trim().ToLower() == "yes"
                     };
                     movies.Add(movie);
+                }
+                else
+                {
+                    Console.WriteLine($"Linha {i + 1}: Formato inválido (esperado 5 colunas, encontrado {parts.Length}). Linha ignorada.");
                 }
             }
 
@@ -51,6 +75,11 @@ public class CsvReaderService
             Console.WriteLine($"Erro ao processar arquivo CSV: {ex.Message}");
             return new List<Movie>();
         }
+    }
+
+    private static bool IsValidYear(int year)
+    {
+        return year >= 1900 && year <= 2100;
     }
 }
 

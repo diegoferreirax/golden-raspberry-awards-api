@@ -22,7 +22,7 @@ public class MoviesController(MovieService movieService) : ControllerBase
         {
             return NotFound(new { message = ex.Message });
         }
-        catch (Exception ex)
+        catch (Exception)
         {
             return StatusCode(500, new { message = "Erro interno do servidor" });
         }

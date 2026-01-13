@@ -49,17 +49,17 @@ Após iniciar a aplicação, você pode testá-la das seguintes formas:
 
 ### 1. Acessar o Swagger
 
-Abra o navegador e acesse:
+Acesse o swagger na seguinte URL e siga as documentações e instruções da ferramenta para realizar os requests:
 
 - `http://localhost:5139/swagger`
 
-### 2. Entrar na pasta do projeto de testes
+### 2. Executando testes de integração
+
+Entre na pasta do projeto de testes
 
 ```bash
 cd ../tests
 ```
-
-### 3. Executando testes de integração
 
 Execute o build do projeto:
 ```bash
